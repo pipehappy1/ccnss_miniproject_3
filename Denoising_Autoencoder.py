@@ -132,7 +132,7 @@ decoder = Decoder()
 
 # Noise 
 
-noise = torch.rand(batch_size,1,28,28)
+#noise = torch.rand(batch_size,1,28,28)
 
 # loss func and optimizer
 # we compute reconstruction after decoder so use Mean Squared Error
@@ -154,6 +154,7 @@ optimizer = torch.optim.Adam(parameters, lr=learning_rate)
 for i in range(epoch):
     print("epoch: {}".format(i))
     for image,label in train_loader:
+        noise = torch.rand(batch_size,1,28,28)
         image_n = torch.mul(image+0.25, 0.1 * noise)
         #image = Variable(image).cuda()
         image = Variable(image)
