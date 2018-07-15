@@ -120,3 +120,7 @@ plt.plot(neurons_good)
 plt.show()
 
             
+####
+core, factors = non_negative_tucker(data, [8, 8, 8])
+p1 = np.dot(data, factors[2][:,:3])
+p2 = np.rollaxis(p1, 1, start=3)
